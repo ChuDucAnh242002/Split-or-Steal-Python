@@ -4,11 +4,12 @@ import pickle
 class Network:
     def __init__(self):
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server = "192.168.0.245"
+        # self.hostname = socket.gethostname()
+        # self.server = socket.gethostbyname(self.hostname)
+        self.server = "172.104.158.232"
         self.port = 5555
         self.addr = (self.server, self.port)
         self.p = self.connect()
-        print(self.p)
 
     def getP(self):
         return self.p
@@ -25,6 +26,3 @@ class Network:
             return pickle.loads((self.client.recv(4096)))
         except socket.error as e:
             print(e)
-
-# n = Network()
-# n.send("get")

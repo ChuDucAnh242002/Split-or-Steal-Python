@@ -102,7 +102,7 @@ def main():
     n = Network()
 
     player = int(n.getP())
-    print("You are player", player)
+    # print("You are player", player)
 
     while run:
 
@@ -112,7 +112,7 @@ def main():
             game = n.send("get")
         except:
             run = False
-            print("Couldn't get game")
+            # print("Couldn't get game")
             break
 
         if game.bothWent():
@@ -122,7 +122,7 @@ def main():
                 game = n.send("reset")
             except:
                 run = False
-                print("Couldn't get game while reseting")
+                # print("Couldn't get game while reseting")
                 break
 
         for event in pygame.event.get():

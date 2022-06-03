@@ -4,7 +4,9 @@ import pickle
 
 from game import Game
 
-server = "192.168.0.245"
+# hostname = socket.gethostname()
+# server = socket.gethostbyname(hostname)
+server = ""
 port = 5555
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -34,12 +36,9 @@ def threaded_client(conn, p, gameId):
                 game = games[gameId]
 
                 if not data:
-                    print("not data")
                     break
                 else:
-                    print(data)
                     if data == "reset":
-                        print("reset")
                         game.reset()
                     elif data != "get":
                         game.play(p, data)
@@ -47,10 +46,8 @@ def threaded_client(conn, p, gameId):
                     reply = game
                     conn.sendall(pickle.dumps(reply))
             else:
-                print("no game")
                 break
         except:
-            print("cannot get data")
             break
         
     print("Lost connection")
