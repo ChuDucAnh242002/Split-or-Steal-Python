@@ -37,7 +37,9 @@ def threaded_client(conn, p, gameId):
                     print("not data")
                     break
                 else:
+                    print(data)
                     if data == "reset":
+                        print("reset")
                         game.reset()
                     elif data != "get":
                         game.play(p, data)

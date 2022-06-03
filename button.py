@@ -1,8 +1,8 @@
 import pygame
 
 class Button:
-    def __init__(self, x, y, image):
-        
+    def __init__(self, text, x, y, image):
+        self.text = text
         self.image = image
         self.width = self.image.get_width()
         self.height = self.image.get_height()
@@ -13,7 +13,7 @@ class Button:
 
     def click(self, pos):
         x1 = pos[0]
-        y1 = pos[0]
+        y1 = pos[1]
         if self.rect.collidepoint(x1, y1):
             return True
         else: return False
